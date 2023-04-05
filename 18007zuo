@@ -380,3 +380,5 @@ TenGigabitEthernet 1/5                   10.96.4.13/30        no address        
 Loopback 0                               100.100.100.100/32   no address           up                     up       
 VLAN 1024                                10.96.100.254/24     no address           up                     up       
 Mgmt 0                                   no address           no address           down                   down     
+end
+wr
