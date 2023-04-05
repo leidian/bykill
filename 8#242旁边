@@ -1,0 +1,280 @@
+NO_8_7_SOUTH#sh run                
+
+System software version : 1.7 Build Nov 12 2007 Release
+
+Building configuration...
+Current configuration : 4646 bytes
+
+!
+version 1.0
+!
+hostname NO_8_7_SOUTH
+vlan 1
+!
+vlan 2
+!
+vlan 13
+!
+vlan 81
+!
+vlan 82
+!
+vlan 83
+!
+vlan 100
+!
+vlan 102
+ name 8#yikatong
+!        
+logging monitor 
+log server 10.96.14.222
+log server 10.96.14.243
+radius-server host 10.96.0.12 
+aaa authentication dot1x  
+aaa accounting server 10.96.0.12  
+aaa accounting 
+aaa accounting update 
+enable secret level 0 5 *_91u_;CX_u8U0<DU^xtj9=G2\/7R:>H
+enable secret level 1 5 *_9-8U0<X_u.tj9=U^x/7R:>2\,1u_;C
+enable secret level 15 5 )ZrfimLM2YscknAx5UyglowNYqeh`@IO
+!
+interface fastEthernet 1/0/1
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/2
+ switchport access vlan 82
+   rldp port loop-detect shutdown-port
+!        
+interface fastEthernet 1/0/3
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/4
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/5
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/6
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/7
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/8
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/9
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/10
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/11
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/12
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/13
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/14
+ switchport access vlan 83
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/15
+   rldp port loop-detect shutdown-port
+!        
+interface fastEthernet 1/0/16
+ description 8#150  
+ switchport access vlan 81
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/17
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/18
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/19
+ description 8#yikatong  
+ switchport access vlan 102
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/20
+ switchport access vlan 81
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/21
+ description 8#yikatong  
+ switchport access vlan 102
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/22
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/23
+ description 8#yikatong  
+ switchport access vlan 102
+   rldp port loop-detect shutdown-port
+!
+interface fastEthernet 1/0/24
+ switchport access vlan 100
+!
+interface gigabitEthernet 1/1/1
+ switchport mode trunk
+!
+interface fastEthernet 2/0/6
+ description 8#127  
+ switchport access vlan 81
+!
+interface vlan 2
+ no shutdown  
+ ip address 10.10.8.7 255.255.255.0 
+!
+dot1x client-probe enable
+aaa authorization ip-auth-mode supplicant
+radius-server key ruijie
+ip default-gateway 10.10.8.254 
+snmp-server community ruijie ro 
+snmp-server host 10.96.14.222 traps version 2c ruijie  
+snmp-server enable traps coldStart
+snmp-server enable traps warmStart
+snmp-server enable traps linkDown
+snmp-server enable traps linkUp
+snmp-server enable traps authenFailure
+snmp-server enable traps newRoot
+snmp-server enable traps topoChange
+snmp-server enable traps hardChangeDetected
+snmp-server enable traps portSecurityViolate
+snmp-server enable traps stormViolationAlarm
+snmp-server enable traps mac-notification
+snmp-server enable traps entity
+snmp-server enable traps cluster
+snmp-server enable traps user-conflict
+line vty
+login local
+!
+line console 0
+login local
+!
+ip ssh version 2
+enable services ssh-server
+no lldp run
+security community ruijie
+sntp server 10.96.14.222
+sntp enable
+  errdisable recovery interval 200
+ rldp enable
+username wyf privilege level 15 password 7 ,_9uY*T7X_qtZ[V/U^yS(\W&2\wX)sv'
+end
+
+NO_8_7_SOUTH#      sh vlan
+                                                                              
+VLAN Name                             Status    Ports                  
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa1/0/15,Fa1/0/17,Fa1/0/18
+                                                Fa1/0/22,Gi1/1/1,Fa2/0/1
+                                                Fa2/0/2,Fa2/0/3,Fa2/0/4
+                                                Fa2/0/5,Fa2/0/7,Fa2/0/8
+                                                Fa2/0/9,Fa2/0/10,Fa2/0/11
+                                                Fa2/0/12,Fa2/0/13,Fa2/0/14
+                                                Fa2/0/15,Fa2/0/16,Fa2/0/17
+                                                Fa2/0/18,Fa2/0/19,Fa2/0/20
+                                                Fa2/0/21,Fa2/0/22,Fa2/0/23
+                                                Fa2/0/24
+2    VLAN0002                         active    Gi1/1/1
+13   VLAN0013                         active    Gi1/1/1
+81   VLAN0081                         active    Fa1/0/16,Fa1/0/20,Gi1/1/1
+                                                Fa2/0/6
+82   VLAN0082                         active    Fa1/0/2,Gi1/1/1
+83   VLAN0083                         active    Fa1/0/1,Fa1/0/3,Fa1/0/4
+                                                Fa1/0/5,Fa1/0/6,Fa1/0/7
+                                                Fa1/0/8,Fa1/0/9,Fa1/0/10
+                                                Fa1/0/11,Fa1/0/12,Fa1/0/13    
+                                                Fa1/0/14,Gi1/1/1
+100  VLAN0100                         active    Fa1/0/24,Gi1/1/1
+102  8#yikatong                       active    Fa1/0/19,Fa1/0/21,Fa1/0/23
+                                                Gi1/1/1
+
+NO_8_7_SOUTH#sh int des
+Interface Status Administrative Description                                   
+--------- ------ -------------- --------------------------------
+Fa1/0/1   down   up                                             
+Fa1/0/2   up     up                                             
+Fa1/0/3   down   up                                             
+Fa1/0/4   down   up                                             
+Fa1/0/5   down   up                                             
+Fa1/0/6   down   up                                             
+Fa1/0/7   down   up                                             
+Fa1/0/8   down   up                                             
+Fa1/0/9   down   up                                             
+Fa1/0/10  down   up                                             
+Fa1/0/11  down   up                                             
+Fa1/0/12  down   up                                             
+Fa1/0/13  down   up                                             
+Fa1/0/14  down   up                                             
+Fa1/0/15  down   up                                             
+Fa1/0/16  down   up             8#150                           
+Fa1/0/17  down   up                                             
+Fa1/0/18  down   up                                             
+Fa1/0/19  down   up             8#yikatong                      
+Fa1/0/20  down   up                                                           
+Fa1/0/21  down   up             8#yikatong                      
+Fa1/0/22  down   up                                             
+Fa1/0/23  down   up             8#yikatong                      
+Fa1/0/24  up     up                                             
+Gi1/1/1   up     up                                             
+Fa2/0/1   down   up                                             
+Fa2/0/2   down   up                                             
+Fa2/0/3   down   up                                             
+Fa2/0/4   down   up                                             
+Fa2/0/5   down   up                                             
+Fa2/0/6   up     up             8#127                           
+Fa2/0/7   down   up                                             
+Fa2/0/8   down   up                                             
+Fa2/0/9   down   up                                             
+Fa2/0/10  down   up                                             
+Fa2/0/11  down   up                                             
+Fa2/0/12  down   up                                             
+Fa2/0/13  down   up                                             
+Fa2/0/14  down   up                                             
+Fa2/0/15  down   up                                             
+Fa2/0/16  down   up                                                           
+Fa2/0/17  down   up                                             
+Fa2/0/18  down   up                                             
+Fa2/0/19  down   up                                             
+Fa2/0/20  down   up                                             
+Fa2/0/21  down   up                                             
+Fa2/0/22  down   up                                             
+Fa2/0/23  down   up                                             
+Fa2/0/24  down   up                                             
+VL2       up     up                                             
+

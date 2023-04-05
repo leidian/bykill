@@ -1,0 +1,669 @@
+NO_1_2#sh run
+
+Building configuration...
+Current configuration : 13786 bytes
+
+!
+version RGOS 10.4(3b19)p3 Release(180891)(Mon Dec 15 12:13:56 CST 2014 -ngcf70)
+hostname NO_1_2
+!
+!
+!
+!
+!
+!
+!
+sntp server 10.96.0.114
+sntp enable
+!
+aaa new-model
+!
+!
+!
+aaa accounting update periodic 30
+aaa accounting update
+aaa accounting network ruijie start-stop group radius
+aaa authorization ip-auth-mode supplicant
+aaa authentication login ruijie local
+aaa authentication dot1x ruijie group radius none
+!
+!
+nfpp
+!
+!
+vlan 1
+!
+vlan 2
+!
+vlan 11
+!
+vlan 12
+!
+vlan 13
+!
+vlan 15
+ name 1#421
+!
+vlan 98
+!
+vlan 100
+!         
+vlan 105
+ name TingCheChang
+!
+vlan 107
+ name 1#416
+!
+vlan 108
+ name 1#418
+!
+vlan 110
+ name 1#419
+!
+vlan 125
+!
+vlan 179
+ name 1#dianzibanpai
+!
+vlan 250
+ name banbantong
+!
+!
+username wyf password heroonly1975
+username wyf privilege 15
+no service password-encryption
+service dhcp
+ip ssh version 2
+ip http authentication local
+!
+ip dhcp snooping
+!
+!
+ip default-gateway 10.10.1.254
+!
+!
+clock timezone east 8 0
+radius-server host 10.96.0.12 test username ruijie idle-time 2 key ruijie
+radius-server dead-criteria tries 6
+radius-server key ruijie
+!
+logging server 10.96.0.112
+logging server 10.96.14.222
+logging server 10.96.14.243
+http redirect direct-site 10.96.11.254 arp
+http redirect direct-site 10.96.12.254 arp
+http redirect direct-site 10.96.13.254 arp
+http redirect homepage http://10.96.0.12/index.html
+http redirect 10.96.14.243
+enable secret 5 $1$87J4$7vy0FD92qyzwru7r 
+enable service ssh-server
+!
+!
+!
+!
+!
+!
+spanning-tree mode rstp
+spanning-tree
+dot1x accounting ruijie
+dot1x authentication ruijie
+dot1x probe-timer alive 60
+dot1x client-probe enable
+dot1x timeout quiet-period 5
+dot1x private-supplicant-only
+dot1x redirect
+interface gi 1/0/1
+ flowcontrol receive auto
+ flowcontrol send auto
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 1/0/2
+ switchport access vlan 107
+ anti-arp-spoofing ip 172.31.107.254
+ rate-limit input 1000 256
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#416_s425  
+!
+interface gi 1/0/3
+ switchport access vlan 107
+ anti-arp-spoofing ip 172.31.107.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#416_s426  
+!
+interface gi 1/0/4
+ switchport access vlan 110
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#419  
+!
+interface gi 1/0/5
+ switchport access vlan 110
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#419_s428  
+!
+interface gi 1/0/6
+ switchport access vlan 13
+ anti-arp-spoofing ip 10.96.13.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+ description Link_to_417  
+!
+interface gi 1/0/7
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 1/0/8
+ switchport access vlan 108
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#418_431kou  
+!
+interface gi 1/0/9
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 1/0/10
+ switchport access vlan 125
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#420_s433  
+!
+interface gi 1/0/11
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#216
+!
+interface gi 1/0/12
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ shutdown
+ description LINK-TO-JF_A218  
+!
+interface gi 1/0/13
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#214
+!
+interface gi 1/0/14
+ switchport access vlan 179
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#dianzibanpai  
+!
+interface gi 1/0/15
+ switchport access vlan 100
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+!
+interface gi 1/0/16
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+ shutdown
+!
+interface gi 1/0/17
+ switchport mode trunk
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+!         
+interface gi 1/0/18
+ switchport mode trunk
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+!
+interface gi 1/0/19
+ switchport mode trunk
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+!
+interface gi 1/0/20
+ switchport mode trunk
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+!
+interface gi 1/0/21
+ switchport access vlan 98
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+!
+interface gi 1/0/22
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ shutdown 
+ description 1#219_S242  
+!
+interface gi 1/0/23
+ switchport access vlan 100
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+!
+interface gi 1/0/24
+ switchport access vlan 98
+ duplex half
+ speed 10
+ spanning-tree portfast
+ description 1#guangbozhan_shebei  
+!
+interface gi 2/0/1
+ switchport access vlan 13
+ anti-arp-spoofing ip 10.96.13.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+ description 1#313  
+!
+interface gi 2/0/2
+ switchport access vlan 13
+ anti-arp-spoofing ip 10.96.13.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 2/0/3
+ switchport access vlan 13
+ anti-arp-spoofing ip 10.96.13.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 2/0/4
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#314_s333  
+!
+interface gi 2/0/5
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#316youkou  
+!         
+interface gi 2/0/6
+ switchport access vlan 13
+ anti-arp-spoofing ip 10.96.13.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 2/0/7
+ switchport access vlan 13
+ anti-arp-spoofing ip 10.96.13.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 2/0/8
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#318zuokou  
+!
+interface gi 2/0/9
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#320_s338
+!
+interface gi 2/0/10
+ switchport access vlan 13
+ anti-arp-spoofing ip 10.96.13.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#320youkou_geyu  
+!
+interface gi 2/0/11
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#317  
+!
+interface gi 2/0/12
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#317_s341  
+!
+interface gi 2/0/13
+ switchport access vlan 13
+ anti-arp-spoofing ip 10.96.13.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 2/0/14
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#319_s343
+!
+interface gi 2/0/15
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#321_s344  
+!
+interface gi 2/0/16
+ switchport access vlan 13
+ anti-arp-spoofing ip 10.96.13.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 2/0/17
+ switchport access vlan 13
+ anti-arp-spoofing ip 10.96.13.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 2/0/18
+ switchport access vlan 13
+ anti-arp-spoofing ip 10.96.13.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#415_S418  
+!
+interface gi 2/0/19
+ switchport access vlan 13
+ anti-arp-spoofing ip 10.96.13.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+ description 1#415_s417
+!
+interface gi 2/0/20
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+!
+interface gi 2/0/21
+ switchport access vlan 13
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+ description 1#415_s420
+!
+interface gi 2/0/22
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 2/0/23
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 2/0/24
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 3/0/1
+ switchport access vlan 11
+ anti-arp-spoofing ip 10.96.11.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 3/0/2
+ switchport access vlan 11
+ anti-arp-spoofing ip 10.96.11.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 3/0/3
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#117_s140
+!
+interface gi 3/0/4
+ switchport access vlan 11
+ anti-arp-spoofing ip 10.96.11.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 3/0/5
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#119_s142  
+!
+interface gi 3/0/6
+ switchport access vlan 11
+ anti-arp-spoofing ip 10.96.11.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 3/0/7
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#116_s144  
+!
+interface gi 3/0/8
+ switchport access vlan 11
+ anti-arp-spoofing ip 10.96.11.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 3/0/9
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#118_s146  
+!
+interface gi 3/0/10
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#120_s147
+!
+interface gi 3/0/11
+ switchport access vlan 11
+ anti-arp-spoofing ip 10.96.11.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 3/0/12
+ switchport access vlan 98
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+!
+interface gi 3/0/13
+ switchport access vlan 12
+ anti-arp-spoofing ip 10.96.12.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+ description 1#216_to_214  
+!
+interface gi 3/0/14
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#218_s236  
+!
+interface gi 3/0/15
+ switchport access vlan 12
+ anti-arp-spoofing ip 10.96.12.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 3/0/16
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description Link_to_220_jifang  
+!
+interface gi 3/0/17
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#220_s239  
+!
+interface gi 3/0/18
+ switchport mode trunk
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description Beimen_tingchechang  
+!
+interface gi 3/0/19
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#217_s241
+!         
+interface gi 3/0/20
+ switchport access vlan 11
+ anti-arp-spoofing ip 10.96.11.254
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ dot1x port-control auto
+!
+interface gi 3/0/21
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#219_s243
+!
+interface gi 3/0/22
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#218_s237  
+!
+interface gi 3/0/23
+ switchport access vlan 250
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+ description 1#221_s245  
+!         
+interface gi 3/0/24
+ switchport access vlan 98
+ rldp port loop-detect shutdown-port
+ spanning-tree portfast
+!
+interface GigabitEthernet 1/0/25
+ switchport mode trunk
+ medium-type fiber
+ ip dhcp snooping trust
+ spanning-tree bpdufilter enable
+ description <Link_To_SW1_G0/23>
+!
+interface GigabitEthernet 1/0/26
+!
+interface GigabitEthernet 2/0/25
+!
+interface GigabitEthernet 2/0/26
+!
+interface GigabitEthernet 3/0/25
+!
+interface GigabitEthernet 3/0/26
+!
+interface VLAN 2
+ ip address 10.10.1.2 255.255.255.0
+ no shutdown
+!
+!
+!
+errdisable recovery interval 200
+!
+snmp-server host 10.96.14.222 traps version 2c ruijie
+snmp-server host 10.96.14.222 traps ruijie
+snmp-server enable traps
+snmp-server community ruijie ro 
+line con 0
+line vty 0 4
+!
+!
+end
+NO_1_2#                                                               sh vlan
+VLAN Name                             Status    Ports     
+---- -------------------------------- --------- -----------------------------------
+   1 VLAN0001                         STATIC    Fa1/0/1, Fa1/0/7, Fa1/0/9, Fa1/0/12   
+                                                Fa1/0/16, Fa1/0/17, Fa1/0/18, Fa1/0/19
+                                                Fa1/0/20, Fa1/0/22, Gi1/0/25, Gi1/0/26
+                                                Fa2/0/20, Fa2/0/22, Fa2/0/23, Fa2/0/24
+                                                Gi2/0/25, Gi2/0/26, Fa3/0/16, Fa3/0/18
+                                                Fa3/0/22, Gi3/0/25, Gi3/0/26          
+   2 VLAN0002                         STATIC    Fa1/0/17, Fa1/0/18, Fa1/0/19, Fa1/0/20
+                                                Gi1/0/25, Fa3/0/18                    
+  11 VLAN0011                         STATIC    Fa1/0/17, Fa1/0/18, Fa1/0/19, Fa1/0/20
+                                                Gi1/0/25, Fa3/0/1, Fa3/0/2, Fa3/0/4   
+                                                Fa3/0/6, Fa3/0/8, Fa3/0/11, Fa3/0/18  
+                                                Fa3/0/20                              
+  12 VLAN0012                         STATIC    Fa1/0/17, Fa1/0/18, Fa1/0/19, Fa1/0/20
+                                                Gi1/0/25, Fa3/0/13, Fa3/0/15, Fa3/0/18
+  13 VLAN0013                         STATIC    Fa1/0/6, Fa1/0/17, Fa1/0/18, Fa1/0/19 
+                                                Fa1/0/20, Gi1/0/25, Fa2/0/1, Fa2/0/2  
+                                                Fa2/0/3, Fa2/0/6, Fa2/0/7, Fa2/0/10   
+                                                Fa2/0/13, Fa2/0/16, Fa2/0/17, Fa2/0/18
+                                                Fa2/0/19, Fa2/0/21, Fa3/0/18          
+  15 1#421                            STATIC    Fa1/0/17, Fa1/0/18, Fa1/0/19, Fa1/0/20
+                                                Gi1/0/25, Fa3/0/18                    
+  98 VLAN0098                         STATIC    Fa1/0/17, Fa1/0/18, Fa1/0/19, Fa1/0/20
+                                                Fa1/0/21, Fa1/0/24, Gi1/0/25, Fa3/0/12
+                                                Fa3/0/18, Fa3/0/24                    
+ 100 VLAN0100                         STATIC    Fa1/0/15, Fa1/0/17, Fa1/0/18, Fa1/0/19
+                                                Fa1/0/20, Fa1/0/23, Gi1/0/25, Fa3/0/18
+ 105 TingCheChang                     STATIC    Fa1/0/17, Fa1/0/18, Fa1/0/19, Fa1/0/20
+                                                Gi1/0/25, Fa3/0/18                    
+ 107 1#416                            STATIC    Fa1/0/2, Fa1/0/3, Fa1/0/17, Fa1/0/18  
+                                                Fa1/0/19, Fa1/0/20, Gi1/0/25, Fa3/0/18
+ 108 1#418                            STATIC    Fa1/0/8, Fa1/0/17, Fa1/0/18, Fa1/0/19 
+                                                Fa1/0/20, Gi1/0/25, Fa3/0/18          
+ 110 1#419                            STATIC    Fa1/0/4, Fa1/0/5, Fa1/0/17, Fa1/0/18  
+                                                Fa1/0/19, Fa1/0/20, Gi1/0/25, Fa3/0/18
+ 125 VLAN0125                         STATIC    Fa1/0/10, Fa1/0/17, Fa1/0/18, Fa1/0/19
+                                                Fa1/0/20, Gi1/0/25, Fa3/0/18          
+ 179 1#dianzibanpai                   STATIC    Fa1/0/14, Fa1/0/17, Fa1/0/18, Fa1/0/19
+                                                Fa1/0/20, Gi1/0/25, Fa3/0/18          
+ 250 banbantong                       STATIC    Fa1/0/11, Fa1/0/13, Fa1/0/17, Fa1/0/18
+                                                Fa1/0/19, Fa1/0/20, Gi1/0/25, Fa2/0/4 
+                                                Fa2/0/5, Fa2/0/8, Fa2/0/9, Fa2/0/11   
+                                                Fa2/0/12, Fa2/0/14, Fa2/0/15, Fa3/0/3 
+                                                Fa3/0/5, Fa3/0/7, Fa3/0/9, Fa3/0/10   
+                                                Fa3/0/14, Fa3/0/17, Fa3/0/18, Fa3/0/19
+                                                Fa3/0/21, Fa3/0/23                    
+NO_1_2#                      sh ver
+System description      : Ruijie Gigabit Security & Intelligence Access Switch (S2628G-E) By Ruijie Networks
+System start time       : 2023-02-13 14:45:2
+System uptime           : 0:0:2:46
+System hardware version : 1.01
+System software version : RGOS 10.4(3b19)p3 Release(180891)
+System BOOT version     : 10.4(2b2) Release(85787)
+System CTRL version     : 10.4(2b2) Release(85787)
+System serial number    : 2683DH7350443
+Device information:
+  Device-1
+    Hardware version : 1.01
+    Software version : RGOS 10.4(3b19)p3 Release(180891)
+    BOOT version     : 10.4(2b2) Release(85787)
+    CTRL version     : 10.4(2b2) Release(85787)
+    Serial Number    : 2683DH7350443
+  Device-2
+    Hardware version : 1.01
+    Software version : RGOS 10.4(3b19)p3 Release(180891)
+    BOOT version     : 10.4(2b2) Release(85787)
+    CTRL version     : 10.4(2b2) Release(85787)
+    Serial Number    : 2683DH7350529
+  Device-3
+    Hardware version : 1.01
+    Software version : RGOS 10.4(3b19)p3 Release(180891)
+    BOOT version     : 10.4(2b2) Release(85787)
+    CTRL version     : 10.4(2b2) Release(85787)
+    Serial Number    : 2683DH7350429

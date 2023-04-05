@@ -1,0 +1,897 @@
+NO_3_1#sh run
+
+System software version : 1.7 Build Nov 12 2007 Release
+
+Building configuration...
+Current configuration : 20376 bytes
+
+!
+version 1.0
+!
+no enable services web-server  
+hostname NO_3_1
+vlan 1
+!
+vlan 2
+!
+vlan 10
+!
+vlan 15
+ name anquanxiaozu
+!
+vlan 20
+!
+vlan 30
+!
+vlan 31
+!
+vlan 32  
+!
+vlan 33
+!
+vlan 34
+!
+vlan 40
+!
+vlan 99
+!
+vlan 100
+!
+vlan 109
+ name 3#dianzibanpai
+!
+vlan 124
+ name 3#4_lou_shixunshi
+!
+vlan 133
+ name 3#438
+!
+vlan 135 
+ name 3#441
+!
+vlan 136
+ name 3#442
+!
+vlan 137
+ name 144_145shixunshi
+!
+vlan 141
+ name 3#438
+!
+vlan 180
+ name 3#dianzibanpai
+!
+vlan 250
+ name banbantong
+!
+vlan 710
+!
+logging monitor 
+log server 10.96.14.222
+radius-server host 10.96.0.12 
+aaa authentication dot1x  
+aaa accounting server 10.96.0.12  
+aaa accounting 
+aaa accounting update 
+privilege exec level 1  show interfaces 
+privilege exec level 4  show running-config 
+privilege exec level 1  show vlan 
+enable secret level 0 5 *_9H.Y*TX_u,tZ[VU^x+S(\W2\G1X)sv
+enable secret level 1 5 *_9j9=G1X_uR:>H.U^x_;C,t2\U0<D+S
+enable secret level 15 5 ,_9u,tZ[X_qD+S(\U^yG1X)s2\wH.Y*T
+!
+interface gi 1/0/1
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/2
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/3
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/4
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/5
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!        
+interface gi 1/0/6
+ description 3#343_2s323  
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/7
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/8
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/9
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ description 3#341_wifi  
+ switchport access vlan 33
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/10
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/11
+ description 3#341_s336  
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/12
+ Anti-ARP-Spoofing ip 10.96.34.254 
+ switchport access vlan 34
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!        
+interface gi 1/0/13
+ description 3#438_s402  
+ switchport access vlan 133
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/14
+ Anti-ARP-Spoofing ip 10.96.34.254 
+ switchport access vlan 34
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/15
+ Anti-ARP-Spoofing ip 10.96.34.254 
+ switchport access vlan 34
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/16
+ description 3#440_s405  
+ switchport access vlan 100
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/17
+ description 3#440_buxian  
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/18
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/19
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/20
+ shutdown  
+ switchport mode trunk
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/21
+ switchport access vlan 99
+   rldp port loop-detect shutdown-port
+!        
+interface gi 1/0/22
+ switchport access vlan 99
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/23
+ shutdown  
+ switchport mode trunk
+   rldp port loop-detect shutdown-port
+!
+interface gi 1/0/24
+   rldp port loop-detect shutdown-port
+!
+interface gigabitEthernet 1/1/1
+ switchport mode trunk
+!
+interface gi 2/0/1
+ shutdown  
+ switchport mode trunk
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/2
+ shutdown  
+ switchport mode trunk
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/3
+ description 3#442_s414  
+ switchport access vlan 136
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/4
+ description 3#442_s413  
+ switchport access vlan 136
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/5
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ description 3#136  
+ switchport access vlan 31
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!        
+interface gi 2/0/6
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ description 3#137_youkou  
+ switchport access vlan 31
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/7
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ description 3#137_2S102  
+ switchport access vlan 31
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/8
+ description 441_s412_anquanxiaozu  
+ switchport access vlan 15
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/9
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/10
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ description 3#202_bangongshi  
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/11
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/12
+ description 3#201_S204  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/13
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/14
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/15
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/16
+ description 3#340_s302  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/17
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/18
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/19
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/20
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/21
+ description 3#340  
+ switchport access vlan 33
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/22
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 2/0/23
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!        
+interface gi 2/0/24
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/1
+ description 3#348_s316  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/2
+ description 3#346_s318  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/3
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+   rldp port loop-detect shutdown-port
+!        
+interface gi 3/0/4
+ description 3#351_s322  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/5
+ description 3#344_s320  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/6
+ description 3#351_s231  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/7
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/8
+ description 3#349_s323  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/9
+ switchport access vlan 33
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/10
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/11
+ description 3#347_s326  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/12
+ description 3#345_s327  
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/13
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/14
+ Anti-ARP-Spoofing ip 10.96.34.254 
+ switchport access vlan 34
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/15
+ Anti-ARP-Spoofing ip 10.96.34.254 
+ switchport access vlan 34
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/16
+ Anti-ARP-Spoofing ip 10.96.34.254 
+ switchport access vlan 34
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/17
+ Anti-ARP-Spoofing ip 10.96.34.254 
+ description 3#447_dianzixuaozu  
+ switchport access vlan 34
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/18
+ Anti-ARP-Spoofing ip 10.96.34.254 
+ switchport access vlan 34
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/19
+ Anti-ARP-Spoofing ip 10.96.34.254 
+ description 3#444  
+ switchport access vlan 34
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/20
+ Anti-ARP-Spoofing ip 10.96.34.254 
+ switchport access vlan 34
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/21
+ Anti-ARP-Spoofing ip 10.96.34.254 
+ switchport access vlan 34
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/22
+ description 3#443_9  
+ switchport access vlan 124
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/23
+ description 3#4lou_shixunshi  
+ switchport access vlan 124
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 3/0/24
+ description 3#441_zuo_s411  
+ switchport access vlan 135
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/1
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/2
+ description 3#244_s206  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/3
+ description 3#242_s207  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/4
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/5
+ description 3#240_s209  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/6
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/7
+ description 3#238_s211  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/8
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/9
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!        
+interface gi 4/0/10
+ description 3#239_s214  
+ switchport access vlan 32
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/11
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/12
+ description 3#241_s216  
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/13
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/14
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/15
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ description 3#355  
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/16
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!        
+interface gi 4/0/17
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/18
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/19
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/20
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ description 3#352  
+ switchport access vlan 33
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/21
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/22
+ Anti-ARP-Spoofing ip 10.96.33.254 
+ switchport access vlan 33
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/23
+ description 3#350_s313  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 4/0/24
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/1
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ description 3#_dianti_zhiwenji  
+ switchport access vlan 31
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/2
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ switchport access vlan 31
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/3
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ switchport access vlan 31
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!        
+interface gi 5/0/4
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ switchport access vlan 31
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/5
+ description 3#145_s105  
+ switchport access vlan 137
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/6
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ switchport access vlan 31
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/7
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ switchport access vlan 31
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/8
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ switchport access vlan 31
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/9
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ switchport access vlan 31
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/10
+ description 3#139_s112  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/11
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ switchport access vlan 31
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/12
+ description 3#140_s113  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/13
+ description 3#141_s110  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/14
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ switchport access vlan 31
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/15
+ description 3#142_s115  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/16
+ description 3#142_s116  
+ switchport access vlan 250
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/17
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ switchport access vlan 31
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/18
+ Anti-ARP-Spoofing ip 10.96.31.254 
+ switchport access vlan 31
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!        
+interface gi 5/0/19
+ description 3#144_s119  
+ switchport access vlan 137
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/20
+ description 3#dianzibanpai  
+ switchport access vlan 180
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/21
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/22
+ shutdown  
+ switchport access vlan 710
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!        
+interface gi 5/0/23
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface gi 5/0/24
+ Anti-ARP-Spoofing ip 10.96.32.254 
+ switchport access vlan 32
+ dot1x port-control auto  
+   rldp port loop-detect shutdown-port
+!
+interface vlan 2
+ no shutdown  
+ ip address 10.10.3.1 255.255.255.0 
+!
+dot1x client-probe enable
+aaa authorization ip-auth-mode supplicant
+dot1x  auth-mode chap
+dot1x timeout quiet-period 5  
+radius-server key ruijie
+ip default-gateway 10.10.3.254 
+snmp-server community ruijie ro 
+snmp-server host 10.96.14.222 traps version 2c ruijie  
+snmp-server enable traps coldStart
+snmp-server enable traps warmStart
+snmp-server enable traps linkDown
+snmp-server enable traps linkUp
+snmp-server enable traps authenFailure
+snmp-server enable traps newRoot
+snmp-server enable traps topoChange
+snmp-server enable traps hardChangeDetected
+snmp-server enable traps portSecurityViolate
+snmp-server enable traps stormViolationAlarm
+snmp-server enable traps mac-notification
+snmp-server enable traps entity
+snmp-server enable traps cluster
+snmp-server enable traps user-conflict
+line vty
+login local
+!
+line console 0
+login local
+!
+ip ssh version 2
+enable services ssh-server
+no lldp run
+security community ruijie
+sntp server 10.96.0.114
+sntp enable
+  errdisable recovery interval 200
+ rldp enable
+username wyf privilege level 15 password 7 ,_9uu_;CX_q8U0<DU^ytj9=G2\w7R:>H
+username qhx password 7 #E,1u_;C1&-8U0<DX'.tj9=G8+/7R:>H
+end
+
+NO_3_1#$                                                   sh vl              
+                                                                              
+VLAN Name                             Status    Ports                  
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa1/0/17,Fa1/0/18,Fa1/0/19
+                                                Fa1/0/20,Fa1/0/23,Fa1/0/24
+                                                Gi1/1/1,Fa2/0/1,Fa2/0/2
+2    VLAN0002                         active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2
+10   VLAN0010                         active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2
+15   anquanxiaozu                     active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2,Fa2/0/8
+20   VLAN0020                         active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2
+30   VLAN0030                         active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2
+31   VLAN0031                         active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2,Fa2/0/5
+                                                Fa2/0/6,Fa2/0/7,Fa5/0/1
+                                                Fa5/0/2,Fa5/0/3,Fa5/0/4
+                                                Fa5/0/6,Fa5/0/7,Fa5/0/8
+                                                Fa5/0/9,Fa5/0/11,Fa5/0/14     
+                                                Fa5/0/17,Fa5/0/18
+32   VLAN0032                         active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2,Fa2/0/9
+                                                Fa2/0/10,Fa2/0/11,Fa2/0/13
+                                                Fa2/0/14,Fa2/0/23,Fa4/0/1
+                                                Fa4/0/4,Fa4/0/6,Fa4/0/8
+                                                Fa4/0/9,Fa4/0/10,Fa4/0/11
+                                                Fa4/0/12,Fa4/0/13,Fa4/0/14
+                                                Fa5/0/21,Fa5/0/23,Fa5/0/24
+33   VLAN0033                         active    Fa1/0/1,Fa1/0/2,Fa1/0/3
+                                                Fa1/0/4,Fa1/0/5,Fa1/0/6
+                                                Fa1/0/7,Fa1/0/8,Fa1/0/9
+                                                Fa1/0/10,Fa1/0/11,Fa1/0/20
+                                                Fa1/0/23,Gi1/1/1,Fa2/0/1
+                                                Fa2/0/2,Fa2/0/15,Fa2/0/17
+                                                Fa2/0/18,Fa2/0/19,Fa2/0/20
+                                                Fa2/0/21,Fa2/0/22,Fa2/0/24
+                                                Fa3/0/3,Fa3/0/7,Fa3/0/9
+                                                Fa3/0/10,Fa3/0/12,Fa3/0/13
+                                                Fa4/0/15,Fa4/0/16,Fa4/0/17
+                                                Fa4/0/18,Fa4/0/19,Fa4/0/20    
+                                                Fa4/0/21,Fa4/0/22
+34   VLAN0034                         active    Fa1/0/12,Fa1/0/14,Fa1/0/15
+                                                Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2,Fa3/0/14
+                                                Fa3/0/15,Fa3/0/16,Fa3/0/17
+                                                Fa3/0/18,Fa3/0/19,Fa3/0/20
+                                                Fa3/0/21
+40   VLAN0040                         active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2
+99   VLAN0099                         active    Fa1/0/20,Fa1/0/21,Fa1/0/22
+                                                Fa1/0/23,Gi1/1/1,Fa2/0/1
+                                                Fa2/0/2
+100  VLAN0100                         active    Fa1/0/16,Fa1/0/20,Fa1/0/23
+                                                Gi1/1/1,Fa2/0/1,Fa2/0/2
+109  3#dianzibanpai                   active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2
+124  3#4_lou_shixunshi                active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2,Fa3/0/22
+                                                Fa3/0/23
+133  3#438                            active    Fa1/0/13,Fa1/0/20,Fa1/0/23
+                                                Gi1/1/1,Fa2/0/1,Fa2/0/2       
+135  3#441                            active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2,Fa3/0/24
+136  3#442                            active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2,Fa2/0/3
+                                                Fa2/0/4
+137  144_145shixunshi                 active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2,Fa5/0/5
+                                                Fa5/0/19
+141  3#438                            active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2
+180  3#dianzibanpai                   active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2,Fa5/0/20
+250  banbantong                       active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2,Fa2/0/12
+                                                Fa2/0/16,Fa3/0/1,Fa3/0/2
+                                                Fa3/0/4,Fa3/0/5,Fa3/0/6
+                                                Fa3/0/8,Fa3/0/11,Fa4/0/2
+                                                Fa4/0/3,Fa4/0/5,Fa4/0/7
+                                                Fa4/0/23,Fa4/0/24,Fa5/0/10
+                                                Fa5/0/12,Fa5/0/13,Fa5/0/15
+                                                Fa5/0/16                      
+710  VLAN0710                         active    Fa1/0/20,Fa1/0/23,Gi1/1/1
+                                                Fa2/0/1,Fa2/0/2,Fa5/0/22
+
+NO_3_1#                               sh ver
+System description      : Red-Giant Gigabit Stacking Intelligent              
+                          Switch(S2126G/S2150G) By Ruijie Network
+System uptime           : 0d:0h:4m:39s
+System hardware version : 3.6
+System software version : 1.7 Build Nov 12 2007 Release
+System BOOT version     : RG-S2126G-BOOT  03-03-02        
+System CTRL version     : RG-S2126G-CTRL  03-11-02 
+Running Switching Image : Layer2
+
