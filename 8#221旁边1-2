@@ -1,14 +1,4 @@
-NO_8_1_NORTH#sh run
 
-System software version : 1.7 Build Nov 12 2007 Release
-
-Building configuration...
-Current configuration : 7757 bytes
-
-!
-version 1.0
-!
-no enable services web-server  
 hostname NO_8_1_NORTH
 vlan 1
 !
@@ -339,9 +329,6 @@ VLAN Name     "                       Status    Ports
 100  VLAN0100                         active    Gi1/1/1
 710  VLAN0710                         active    Fa1/0/16,Gi1/1/1
 
-NO_8_1_NORTH#    sh int des 
-Interface Status Administrative Description                                   
---------- ------ -------------- --------------------------------
 Fa1/0/1   down   up                                             
 Fa1/0/2   down   up                                             
 Fa1/0/3   down   up                                             
