@@ -1,1 +1,1 @@
-java -Xmx4096M -jar Spigot-1.12.2 nogui   4096
+java -Xmx4096M -jar Spigot-1.15.5 nogui   4096
