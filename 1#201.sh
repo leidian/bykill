@@ -159,7 +159,7 @@ interface gi 1/0/5
  switchport access vlan 250
  rldp port loop-detect shutdown-port
  spanning-tree portfast
- description 1#110—�_s110
+ description 1#110â€”â_s110
 !
 interface gi 1/0/6
  switchport access vlan 100
@@ -578,7 +578,7 @@ interface GigabitEthernet 1/0/25
  medium-type fiber
  ip dhcp snooping trust
  spanning-tree bpdufilter enable
- description �<Link_To_SW1_G0/24>
+ description ã€<Link_To_SW1_G0/24>
 !
 interface GigabitEthernet 1/0/26
 !
