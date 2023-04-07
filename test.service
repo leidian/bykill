@@ -1,0 +1,13 @@
+
+[Unit] #启动顺序与依赖关系
+Description=startDjango #名称
+After=network.target  # 定义启动顺序。
+                      # Before=xxx.service,代表本服务在xxx.service启动之前启动；
+                      # After=xxx.service,代表本服务在xxx.service之后启动。
+ 
+[Service] #启动行为,如何启动，启动类型
+ExecStart=/home/start.sh	
+SuccessExitStatus=143
+ 
+[Install] #定义如何安装这个配置文件，即怎样做到开机启动
+WantedBy=multi-user.target # WantedBy：表示该服务所在的 Target(服务组)
