@@ -1,0 +1,12 @@
+name: GsCode
+module_name: nonebot_plugin_gscode
+description: 查询原神前瞻直播兑换码
+usage: "查询原神前瞻直播兑换码\n注意：经测试，兑换码接口返回与前瞻直播有 2 分钟左右延迟，应为正常现象，请耐心等待。\n/gscode\n/兑换码"
+show: true
+priority: 99
+matchers:
+- pm_name: 原神前瞻兑换码
+  pm_description: 查询原神前瞻兑换码
+  pm_usage: 兑换码
+  pm_priority: 9
+  pm_show: true

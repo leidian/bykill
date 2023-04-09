@@ -1,0 +1,12 @@
+name: 原神本月札记
+module_name: Paimon_MonthInfo
+description: 原神本月札记信息
+usage: 本月统计(uid)[月份]
+show: true
+priority: 5
+matchers:
+- pm_name: myzj
+  pm_description: '*查看指定月份的原石、摩拉获取情况'
+  pm_usage: 本月统计(uid)[月份]
+  pm_priority: 1
+  pm_show: true
