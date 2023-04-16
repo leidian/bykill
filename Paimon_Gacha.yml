@@ -28,5 +28,5 @@ matchers:
 - pm_name: 选择定轨
   pm_description: 选择定轨武器
   pm_usage: 选择定轨<武器名>
-  pm_priority: 6
+  pm_priority: 7
   pm_show: true
