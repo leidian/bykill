@@ -19,7 +19,7 @@ matchers:
   pm_description: 生成材料图鉴等所需要的地图资源，仅超级用户可用。
   pm_usage: 生成地图
   pm_priority: 4
-  pm_show: false
+  pm_show: true
 - pm_name: 尘歌壶摹本材料
   pm_description: 查看尘歌壶摹本所需要的材料总览
   pm_usage: 尘歌壶材料<摹数>
