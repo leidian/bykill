@@ -99,7 +99,6 @@ interface fastEthernet 1/0/12
 !
 interface fastEthernet 1/0/13
  switchport access vlan 83
- dot1x port-control auto  
    rldp port loop-detect shutdown-port
 !
 interface fastEthernet 1/0/14
