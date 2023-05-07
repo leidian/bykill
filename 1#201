@@ -560,6 +560,7 @@ interface gi 3/0/20
 interface gi 3/0/21
  rldp port loop-detect shutdown-port
  spanning-tree portfast
+ rldp port loop-detect shutdown-port
 !
 interface gi 3/0/22
  rldp port loop-detect shutdown-port
@@ -568,6 +569,7 @@ interface gi 3/0/22
 interface gi 3/0/23
  rldp port loop-detect shutdown-port
  spanning-tree portfast
+ rldp port loop-detect shutdown-port
 !
 interface gi 3/0/24
  rldp port loop-detect shutdown-port
