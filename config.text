@@ -1,0 +1,231 @@
+version S6120_RGOS 12.4(1)B0102
+hostname 5#HUIJU
+!
+sntp server 10.96.0.114
+sntp enable
+!
+service trustedarp
+!
+username wyf privilege 15 password 7 101d17350a1d44013843727b50
+!
+no cwmp
+!
+service dhcp
+ip dhcp excluded-address 10.96.54.254 
+ip dhcp excluded-address 10.96.54.1 10.96.54.200
+ip dhcp excluded-address 10.96.52.1 10.96.52.205
+!
+ip dhcp pool 54
+ lease 0 2 0 
+ network 10.96.54.0 255.255.255.0
+ dns-server 114.114.114.114 
+ default-router 10.96.54.254 
+!
+ip dhcp pool 52
+ network 10.96.52.0 255.255.255.0
+ dns-server 114.114.114.114 
+ default-router 10.96.52.254 
+!
+ip dhcp pool 53
+ network 10.96.53.0 255.255.255.0
+ dns-server 114.114.114.114 
+ default-router 10.96.53.254 
+!
+ip dhcp pool 55
+ network 10.96.55.0 255.255.255.0
+ dns-server 10.96.0.114 114.114.114.114 
+ default-router 10.96.55.254 
+!
+install 0 RG-S6120-20XS4VS2QXS
+!
+sysmac 7042.d36b.dcf0
+no ip domain-lookup
+!
+enable service web-server http
+enable service web-server https
+webmaster level 0 username admin password 7 14134e00281c
+!
+nfpp
+!
+service password-encryption
+!
+redundancy
+!
+ip ssh version 2
+service standard-syslog
+service sequence-numbers
+logging count
+logging buffered 40960
+logging file flash:syslog 1048576
+logging trap debugging
+logging source interface Loopback 0
+clock timezone east +8 0
+!
+enable service ssh-server
+!
+vlan 96
+ name HIK-DVR
+!
+vlan 98
+ name guangbo
+!
+vlan 99
+ name LED
+!
+vlan range 1-2,51-55
+!
+interface TenGigabitEthernet 0/1
+ port-group 1
+!
+interface TenGigabitEthernet 0/2
+ port-group 1
+!
+interface TenGigabitEthernet 0/3
+ port-group 2
+!
+interface TenGigabitEthernet 0/4
+ port-group 2
+!
+interface TenGigabitEthernet 0/5
+ port-group 3
+!
+interface TenGigabitEthernet 0/6
+ port-group 3
+!
+interface TenGigabitEthernet 0/7
+ port-group 4
+!
+interface TenGigabitEthernet 0/8
+ port-group 4
+!
+interface TenGigabitEthernet 0/9
+ port-group 5
+!
+interface TenGigabitEthernet 0/10
+ port-group 5
+!
+interface TenGigabitEthernet 0/11
+ port-group 6
+!
+interface TenGigabitEthernet 0/12
+ port-group 6
+!
+interface TenGigabitEthernet 0/13
+ port-group 7
+!
+interface TenGigabitEthernet 0/14
+ port-group 7
+!
+interface TenGigabitEthernet 0/15
+ port-group 8
+!
+interface TenGigabitEthernet 0/16
+ port-group 8
+!
+interface TenGigabitEthernet 0/17
+!
+interface TenGigabitEthernet 0/18
+!
+interface TenGigabitEthernet 0/19
+!
+interface TenGigabitEthernet 0/20
+ no switchport
+!
+interface TFGigabitEthernet 0/21
+ port speed-mode 10G
+!
+interface TFGigabitEthernet 0/22
+ port speed-mode 10G
+!
+interface TFGigabitEthernet 0/23
+ port speed-mode 10G
+ no switchport
+!
+interface TFGigabitEthernet 0/24
+ port speed-mode 10G
+ no switchport
+ ip address 10.96.4.14 255.255.255.252
+!
+interface FortyGigabitEthernet 0/25
+!
+interface FortyGigabitEthernet 0/26
+!
+interface AggregatePort 1
+ description 5#204_1
+ switchport mode trunk
+!
+interface AggregatePort 2
+ description 5#204_2
+ switchport mode trunk
+!
+interface AggregatePort 3
+ description 5#204_3
+ switchport mode trunk
+!
+interface AggregatePort 4
+ description 5#307_1
+ switchport mode trunk
+!
+interface AggregatePort 5
+ description 5#307_2
+ switchport mode trunk
+!
+interface AggregatePort 6
+ description 5#307_3
+ switchport mode trunk
+!
+interface AggregatePort 7
+ description 5#307_4
+ switchport mode trunk
+!
+interface AggregatePort 8
+ description 5#307_5
+ switchport mode trunk
+!
+interface Loopback 0
+ ip address 5.5.5.5 255.255.255.255
+!
+interface VLAN 1
+ shutdown
+ ip address mix dhcp
+ ip address mix 192.168.1.200 255.255.255.0
+!
+interface VLAN 2
+ ip address 10.10.5.254 255.255.255.0
+!
+interface VLAN 51
+ ip address 10.96.51.254 255.255.255.0
+!
+interface VLAN 52
+ ip address 10.96.52.254 255.255.255.0
+!
+interface VLAN 53
+ ip address 10.96.53.254 255.255.255.0
+!
+interface VLAN 54
+ ip address 10.96.54.254 255.255.255.0
+!
+interface VLAN 55
+ ip address 10.96.55.254 255.255.255.0
+!
+interface Mgmt 0
+ ip address mix dhcp
+ ip address mix 192.168.1.200 255.255.255.0
+!
+router ospf 100
+ router-id 5.5.5.5
+ graceful-restart
+ network 5.5.5.5 0.0.0.0 area 0
+ network 10.10.5.0 0.0.0.255 area 0
+ network 10.96.4.12 0.0.0.3 area 0
+ network 10.96.51.0 0.0.0.255 area 0
+ network 10.96.52.0 0.0.0.255 area 0
+ network 10.96.53.0 0.0.0.255 area 0
+ network 10.96.54.0 0.0.0.255 area 0
+ network 10.96.55.0 0.0.0.255 area 0
+!
+line console 0
+line vty 0 4
+ login local
+!
+end
