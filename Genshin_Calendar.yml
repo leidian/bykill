@@ -6,7 +6,7 @@ show: true
 priority: 7
 matchers:
 - pm_name: 原神日历
-  pm_description:
+  pm_description: true
   pm_usage:
   pm_priority: 99
   pm_show: true
