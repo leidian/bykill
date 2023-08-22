@@ -1,0 +1,95 @@
+NO_1_4#sh run
+
+System software version : 1.7 Build Nov 12 2007 Release
+
+Building configuration...
+Current configuration : 1388 bytes
+
+!
+version 1.0
+!
+hostname NO_1_4
+vlan 1
+!
+vlan 2
+!
+vlan 85
+!
+vlan 100
+ name jiankong
+!
+vlan 105
+ name yikatong
+!
+log server 10.96.0.9
+interface fastEthernet 0/2
+ description to_wuxian  
+ switchport access vlan 105
+!        
+interface fastEthernet 0/3
+ switchport access vlan 105
+!
+interface fastEthernet 0/4
+ switchport access vlan 105
+!
+interface fastEthernet 0/6
+ description to_jiangkong  
+ switchport access vlan 100
+!
+interface fastEthernet 0/10
+ description to_beimen_daping_langan  
+ switchport access vlan 105
+!
+interface fastEthernet 0/11
+ description to_beimen_daping_langan  
+ switchport access vlan 105
+!
+interface fastEthernet 0/12
+ description to_beimen_daping_langan  
+ switchport access vlan 105
+!
+interface fastEthernet 0/13
+ description to_beimen_daping_langan  
+ switchport access vlan 105
+!
+interface fastEthernet 0/14
+ description to_NO_1_2_F3/0/18  
+ switchport access vlan 105
+!
+interface fastEthernet 0/15
+ switchport access vlan 105
+!
+interface fastEthernet 0/16
+ switchport access vlan 105
+!
+interface fastEthernet 0/24
+ switchport mode trunk
+!
+interface vlan 1
+!
+interface vlan 2
+ no shutdown  
+!
+ip default-gateway 10.10.1.254 
+snmp-server community ruijie ro 
+snmp-server host 10.96.14.222 traps version 2c ruijie  
+username wyf privilege level 15 password 7 ,_9u9=G1X_qR:>H.U^y_;C,t2\w0<D+S
+end
+
+NO_1_4# sh vlan 
+                                                                              
+VLAN Name                             Status    Ports                  
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/1 ,Fa0/5 ,Fa0/7 
+                                                Fa0/8 ,Fa0/9 ,Fa0/17
+                                                Fa0/18,Fa0/19,Fa0/20
+                                                Fa0/21,Fa0/22,Fa0/23
+                                                Fa0/24
+2    VLAN0002                         active    Fa0/24
+85   VLAN0085                         active    Fa0/24
+100  jiankong                         active    Fa0/6 ,Fa0/24
+105  yikatong                         active    Fa0/2 ,Fa0/3 ,Fa0/4 
+                                                Fa0/10,Fa0/11,Fa0/12
+                                                Fa0/13,Fa0/14,Fa0/15
+                                                Fa0/16,Fa0/24
+
